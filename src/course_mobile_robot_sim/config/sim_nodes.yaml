@@ -1,0 +1,6 @@
+cmd_vel_safety_node:
+  ros__parameters:
+    # 单位依次为 m/s、rad/s、s
+    max_linear_speed: 1.2
+    max_angular_speed: 1.2
+    command_timeout: 1.0

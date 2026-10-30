@@ -1,0 +1,6 @@
+# 请求：要切换到的控制模式（MANUAL、CRUISE 或 NAVIGATION）
+string mode
+---
+# 响应：是否切换成功，以及提示信息
+bool success
+string message

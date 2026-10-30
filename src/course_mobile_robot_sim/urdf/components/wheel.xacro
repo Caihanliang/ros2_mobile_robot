@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- 左右轮结构相同，只把名称和 Y 坐标参数化。 -->
+  <xacro:macro name="wheel" params="side y_position">
+    <link name="${side}_wheel_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+        <geometry>
+          <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+        </geometry>
+        <material name="wheel_black"/>
+      </visual>
+      <visual name="rotation_marker">
+        <origin xyz="${wheel_radius} 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.025 ${wheel_marker_width} 0.025"/>
+        </geometry>
+        <material name="marker_yellow"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+        <geometry>
+          <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.45"/>
+        <inertia ixx="0.00126" ixy="0.0" ixz="0.0"
+                 iyy="0.00225" iyz="0.0" izz="0.00126"/>
+      </inertial>
+    </link>
+
+    <joint name="${side}_wheel_joint" type="continuous">
+      <parent link="base_link"/>
+      <child link="${side}_wheel_link"/>
+      <origin xyz="${wheel_x} ${y_position} ${wheel_z}" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+    </joint>
+  </xacro:macro>
+</robot>

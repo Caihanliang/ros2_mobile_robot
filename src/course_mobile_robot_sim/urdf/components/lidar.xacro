@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="lidar" params="">
+    <link name="lidar_support_link">
+      <visual>
+        <geometry><cylinder radius="${lidar_support_radius}" length="${lidar_support_length}"/></geometry>
+        <material name="support_gray"/>
+      </visual>
+      <collision>
+        <geometry><cylinder radius="${lidar_support_radius}" length="${lidar_support_length}"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="0.10"/>
+        <inertia ixx="0.000069" ixy="0.0" ixz="0.0"
+                 iyy="0.000069" iyz="0.0" izz="0.000031"/>
+      </inertial>
+    </link>
+    <joint name="lidar_support_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="lidar_support_link"/>
+      <origin xyz="${lidar_x} 0 ${lidar_support_z}" rpy="0 0 0"/>
+    </joint>
+
+    <link name="lidar_link">
+      <visual>
+        <geometry><cylinder radius="${lidar_radius}" length="${lidar_height}"/></geometry>
+        <material name="sensor_dark"/>
+      </visual>
+      <collision>
+        <geometry><cylinder radius="${lidar_radius}" length="${lidar_height}"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="0.20"/>
+        <inertia ixx="0.000262" ixy="0.0" ixz="0.0"
+                 iyy="0.000262" iyz="0.0" izz="0.000423"/>
+      </inertial>
+    </link>
+    <joint name="lidar_joint" type="fixed">
+      <parent link="lidar_support_link"/>
+      <child link="lidar_link"/>
+      <origin xyz="0 0 ${lidar_z_from_support}" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+</robot>

@@ -1,0 +1,44 @@
+slam_toolbox:
+  ros__parameters:
+    use_sim_time: true
+    odom_frame: odom
+    map_frame: map
+    base_frame: base_footprint
+    scan_topic: /scan
+    mode: mapping
+
+    solver_plugin: solver_plugins::CeresSolver
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
+    ceres_preconditioner: SCHUR_JACOBI
+    ceres_trust_strategy: LEVENBERG_MARQUARDT
+    ceres_dogleg_type: TRADITIONAL_DOGLEG
+    ceres_loss_function: None
+
+    # 缩短地图刷新间隔，让 RViz 中的建图结果更连贯。
+    map_update_interval: 0.5
+    resolution: 0.05
+    transform_publish_period: 0.02
+    transform_timeout: 0.5
+    tf_buffer_duration: 30.0
+
+    max_laser_range: 8.0
+    # 雷达为 20 Hz；异步建图只保留最新扫描，避免处理积压的旧数据。
+    minimum_time_interval: 0.05
+    scan_queue_size: 1
+    # 小车轻微移动或转动后就处理新扫描，便于及时修正激光与地图的偏移。
+    minimum_travel_distance: 0.02
+    minimum_travel_heading: 0.01
+
+    use_scan_matching: true
+    use_scan_barycenter: true
+    scan_buffer_size: 10
+    scan_buffer_maximum_scan_distance: 10.0
+    link_match_minimum_response_fine: 0.1
+    link_scan_maximum_distance: 1.5
+
+    do_loop_closing: true
+    loop_search_maximum_distance: 3.0
+    loop_match_minimum_chain_size: 10
+    loop_match_maximum_variance_coarse: 3.0
+    loop_match_minimum_response_coarse: 0.35
+    loop_match_minimum_response_fine: 0.45

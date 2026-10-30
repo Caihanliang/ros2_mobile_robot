@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <material name="course_blue">
+    <color rgba="0.12 0.35 0.90 1.0"/>
+  </material>
+  <material name="wheel_black">
+    <color rgba="0.03 0.03 0.03 1.0"/>
+  </material>
+  <material name="caster_gray">
+    <color rgba="0.55 0.55 0.55 1.0"/>
+  </material>
+  <material name="sensor_dark">
+    <color rgba="0.10 0.10 0.10 1.0"/>
+  </material>
+  <material name="support_gray">
+    <color rgba="0.35 0.35 0.38 1.0"/>
+  </material>
+  <material name="marker_yellow">
+    <color rgba="0.95 0.75 0.10 1.0"/>
+  </material>
+</robot>

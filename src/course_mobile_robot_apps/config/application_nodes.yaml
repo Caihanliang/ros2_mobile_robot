@@ -1,0 +1,14 @@
+simple_cruise_node:
+  ros__parameters:
+    # 距离单位为 m，速度单位为 m/s 和 rad/s
+    safe_distance: 1.0
+    forward_speed: 0.25
+    turn_speed: 0.65
+
+simple_goal_navigation_node:
+  ros__parameters:
+    # 距离单位为 m，速度单位为 m/s 和 rad/s
+    goal_tolerance: 0.15
+    obstacle_distance: 0.55
+    forward_speed: 0.4
+    turn_speed: 0.6

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="base_footprint" params="">
+    <!-- 地面投影坐标系：供里程计、简易导航和可选 SLAM 使用。 -->
+    <link name="base_footprint"/>
+  </xacro:macro>
+</robot>

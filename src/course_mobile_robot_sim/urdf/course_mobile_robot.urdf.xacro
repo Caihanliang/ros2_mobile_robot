@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot name="course_mobile_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!--
+    结课实战小车的唯一装配入口。
+    各组件分别维护，RViz、robot_state_publisher 和 Gazebo 共用展开后的同一份 URDF。
+  -->
+  <xacro:include filename="components/properties.xacro"/>
+  <xacro:include filename="components/materials.xacro"/>
+  <xacro:include filename="components/base_footprint.xacro"/>
+  <xacro:include filename="components/chassis.xacro"/>
+  <xacro:include filename="components/wheel.xacro"/>
+  <xacro:include filename="components/caster.xacro"/>
+  <xacro:include filename="components/lidar.xacro"/>
+  <xacro:include filename="components/gazebo_extensions.xacro"/>
+
+  <xacro:base_footprint/>
+  <xacro:chassis/>
+  <xacro:wheel side="left" y_position="${wheel_y}"/>
+  <xacro:wheel side="right" y_position="${-wheel_y}"/>
+  <xacro:caster/>
+  <xacro:lidar/>
+  <xacro:gazebo_extensions/>
+</robot>
